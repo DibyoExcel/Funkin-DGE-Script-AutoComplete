@@ -1142,6 +1142,21 @@
             "returns": "string",
             "documentation": "open the webpage.\n\nweb:the link to open pages.",
             "args": "web:String = 'https://github.com/Dibyo-Excel/Dragon-Engine'"
+        },
+        "getResolutionWidth": {
+            "returns": "number",
+            "documentation": "return 'Int' of monitor width resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.width')'.",
+            "args": ""
+        },
+        "getResolutionHeight": {
+            "returns": "number",
+            "documentation": "return 'Int' of monitor height resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.height')'.",
+            "args": ""
+        },
+        "getBlendFromString": {
+            "returns": "flxblend",
+            "documentation": "return 'FlxBlend' from 'String'",
+            "args": "blend:String"
         }
     },
     "variables": {

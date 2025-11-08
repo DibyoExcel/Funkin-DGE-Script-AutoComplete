@@ -8,11 +8,13 @@ Visual Studio Code AutoCompleter Extension for [Dragon Engine](https://github.co
 - Hovers with documentation
 - API data is downloaded from the Github repository instead of being grabbed from local storage.
 
-# How to install extension.
-- Open Extension(Ctrl+Shift+X) in VS Code.
-- Click Tree Dots.
-- Press "Install From VSIX"
-- Choose extension that you download.
+# How to install VSIX.
+- Downloaf the .vsix file from latest releases.
+- Open **Visual Studio Code** and select **Extension** from Left Bar.
+- At the top Extension menu click on three dots and select "**Install From VSIX**".
+- In the Install from VSIX window select downloaded .vsix file.
+- Restart Visual Studio Code.
+- (Optional) you can change the targetted engine version in **File/Preferences/Setting/Extension/FNF Dragon Engine Script AutoComplete/Engine**
 
 
 # Credits
