@@ -11,7 +11,7 @@ Visual Studio Code AutoCompleter Extension for [Dragon Engine](https://github.co
 # How to install extension.
 - Open Extension(Ctrl+Shift+X) in VS Code.
 - Click Tree Dots.
-- The presss "Install From VSIX"
+- Press "Install From VSIX"
 - Choose extension that you download.
 
 
