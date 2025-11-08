@@ -1,0 +1,12 @@
+node_modules/
+out/
+target/
+*.vsix
+.vscode/settings.json
+.vscode/extensions.json
+# is this file important? lmao
+package-lock.json
+changelog.txt
+dataInput.txt
+dataOutput.json
+changelog
