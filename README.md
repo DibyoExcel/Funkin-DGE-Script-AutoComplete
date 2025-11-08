@@ -8,6 +8,12 @@ Visual Studio Code AutoCompleter Extension for [Dragon Engine](https://github.co
 - Hovers with documentation
 - API data is downloaded from the Github repository instead of being grabbed from local storage.
 
+# How to install extension.
+- Open Extension(Ctrl+Shift+X) in VS Code.
+- Click Tree Dots.
+- The presss "Install From VSIX"
+- Choose extension that you download.
+
 
 # Credits
 All credit to [Funkin-Script-AutoComplete](https://codeberg.org/Snirozu/Funkin-Script-AutoComplete).
