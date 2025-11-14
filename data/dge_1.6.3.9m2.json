@@ -1140,7 +1140,7 @@
         },
         "openURL": {
             "returns": "string",
-            "documentation": "open the webpage.\n\nweb:the link to open pages.",
+            "documentation": "open the webpage.\n\nweb: the link to open pages.",
             "args": "web:String = 'https://github.com/Dibyo-Excel/Dragon-Engine'"
         },
         "getResolutionWidth": {
@@ -1157,6 +1157,11 @@
             "returns": "BlendMode",
             "documentation": "return 'BlendMode' from 'String'",
             "args": "blend:String"
+        },
+        "changeNotesTexture": {
+            "returns": "void",
+            "documentation": "Change the notes texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
+            "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
         }
     },
     "variables": {
