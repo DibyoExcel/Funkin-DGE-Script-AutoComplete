@@ -1109,7 +1109,7 @@
             "args": "duration:Float = 0.25, ease:String"
         },
         "changeWallpaper": {
-            "returns": "bool",
+            "returns": "boolean",
             "documentation": "Change os wallpaper.\n\npath: the path of images file(must be absolute. example: the 'example.png' in 'mods/modname/images/' you had to write 'path' as 'mods/modname/images/example.png').\n\nabsolute: if true it will use system path(example: 'C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg', the 'path' mush write like 'C:\\\\Windows\\\\Web\\\\Wallpaper\\\\Windows\\\\img0.jpg').",
             "args": "path:String, absolute:Bool = false"
         },
@@ -1549,15 +1549,15 @@
             "documentation": "Return String of current gamemode."
         },
         "extraui": {
-            "returns": "bool",
+            "returns": "boolean",
             "documentation": "Return Bool of \"Extra UI\" Setting."
         },
         "darkmode": {
-            "returns": "bool",
+            "returns": "boolean",
             "documentation": "Return Bool of \"Dark Mode\" Setting."
         },
         "startPause": {
-            "returns": "bool",
+            "returns": "boolean",
             "documentation": "Return Bool of \"Start Pause\" Setting."
         },
         "defaultGfStrumX0": {

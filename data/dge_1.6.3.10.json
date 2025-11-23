@@ -1162,6 +1162,16 @@
             "returns": "void",
             "documentation": "Change the notes texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
             "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
+        },
+        "revertWallpaper": {
+            "returns": "boolean",
+            "documentation": "Revert os wallpaper to wallpaper before load song.",
+            "args": ""
+        },
+        "debugPrintArray": {
+            "returns": "void",
+            "documentation": "same as 'debugPrint()' but with array.",
+            "args": "text:Array<Dynamic>"
         }
     },
     "variables": {
