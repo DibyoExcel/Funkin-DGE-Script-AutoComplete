@@ -2,7 +2,7 @@
 	"name": "fnf-dragon-engine-script-autocompleter",
 	"displayName": "FNF Dragon Engine Script AutoCompleter",
 	"description": "AutoCompleter for FNF-Dragon-Engine scripts",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"icon": "images/icon.png",
 	"publisher": "DubEnderDragon",
 	"private": true,
