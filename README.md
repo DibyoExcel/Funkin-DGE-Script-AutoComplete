@@ -9,7 +9,7 @@ Visual Studio Code AutoCompleter Extension for [Dragon Engine](https://github.co
 - API data is downloaded from the Github repository instead of being grabbed from local storage.
 
 # How to install VSIX.
-- Downloaf the .vsix file from latest releases.
+- Download the .vsix file from latest releases.
 - Open **Visual Studio Code** and select **Extension** from Left Bar.
 - At the top Extension menu click on three dots and select "**Install From VSIX**".
 - In the Install from VSIX window select downloaded .vsix file.
