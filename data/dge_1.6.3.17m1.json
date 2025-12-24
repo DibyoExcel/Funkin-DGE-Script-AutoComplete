@@ -1212,6 +1212,21 @@
             "returns": "void",
             "documentation": "change rating texture.\n\nrating: rating name to change('sick', 'good', 'bad', 'shit', and 0-9(string only)).\n\npath: texture file path in 'images/'.",
             "args": "rating:String, path:String"
+        },
+        "resizeGame": {
+            "returns": "void",
+            "documentation": "resize game world resolution.\n\nwidth: size width of game world reslution.\n\nheight: size height of game world resolution.\n\nresetLayout: should layout ui layout reset?\n\nduration: duration for transition.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.\n\nexcludeCam: exclude cam from resize(separate with comma example: 'hud, game').\n\nWarning: best use in 'onCreate()'. in other function can use but the camera character slightly bit off.",
+            "args": "width:Null<Int> = null, height:<Int> = null, resetLayout:Bool = false, duration:Float = 0, ease:String, excludeCam:String"
+        },
+        "precacheSparrowAtlas": {
+            "returns": "void",
+            "documentation": "precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
+            "args": "name:String"
+        },
+        "precachePackerAtlas": {
+            "returns": "void",
+            "documentation": "precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
+            "args": "name:String"
         }
     },
     "variables": {
@@ -1666,6 +1681,10 @@
         "platformVersion": {
             "returns": "string",
             "documentation": "return 'String' of Platform Version."
+        },
+        "camGameMult": {
+            "returns": "float",
+            "documentation": "return 'Float' of Multiply resolution fill content from 'resizeGame()'."
         }
     },
     "events": {
@@ -1893,6 +1912,26 @@
             "returns": "void",
             "documentation": "function when change when change 2nd strumd(from 'setSecondOpponent()').\n\ndualstrum: returning bool of 2nd strums mode after change.\n\ntransition: returning bool of transition after change.\n\ntransition2: returning bool of transition2 after change.",
             "args": "dualstrum:Bool, transition:Bool, transition2:Bool"
+        },
+        "onRatingPopUp": {
+            "returns": "void",
+            "documentation": "function when pop up rating.\n\nnoteId: A Current note hit id.\n\nratingId: A Current Rating id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "args": "noteId:Int, ratingId:Int, noteData:Int, noteType:String"
+        },
+        "onNumPopUp": {
+            "returns": "void",
+            "documentation": "function when pop up combo number.\n\nnoteId: A Current note hit id.\n\nnumId: A Current Num id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "args": "noteId:Int, numId:Int, noteData:Int, noteType:String"
+        },
+        "onComboPopUp": {
+            "returns": "void",
+            "documentation": "function when pop up 'combo'.\n\nnoteId: A Current note hit id.\n\ncomboId: A Current combo hit id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "args": "noteId:Int, comboId:Int, noteData:Int, noteType:String"
+        },
+        "onSpawnNoteSplashes": {
+            "returns": "void",
+            "documentation": "function when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "args": "noteId:Int, splashId:Int, noteData:Int, noteType:String"
         }
     }
 }

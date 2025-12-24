@@ -341,7 +341,7 @@
         "setObjectCamera": {
             "returns": "void",
             "args": "obj:String, camera:String",
-            "documentation": "Changes on which camera should your object be drawn on\n* `obj` - Lua Sprite tag or Object variable name\n* `camera` - `game`, `hud` or `other`."
+            "documentation": "Changes on which camera should your object be drawn on\n* `obj` - Lua Sprite tag or Object variable name\n* `camera` - camera to set, like `game`, `hud` or `other`(Separate with comma. Example: 'game, hud')."
         },
         "addCharacterToList": {
             "returns": "void",
@@ -925,8 +925,8 @@
         },
         "getTextFromFile": {
             "returns": "string",
-            "args": "path:String, ?ignoreModFolders:Bool = false",
-            "documentation": "Returns content of specific file in text"
+            "args": "path:String, ?ignoreModFolders:Bool = false, ?forceFromDisk:Bool = false",
+            "documentation": "Returns content of specific file in text.\n\npath: Path to file\n\nignoreModFolders: If true, it'll ignore mod folders and only check in base game folder\n\nforceFromDisk: If true, it'll force load file from disk instead of cache(false by default for performance)."
         },
         "luaSpriteMakeGraphic": {
             "returns": "void",
