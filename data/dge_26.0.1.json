@@ -1145,12 +1145,12 @@
         },
         "getResolutionWidth": {
             "returns": "number",
-            "documentation": "return 'Int' of monitor width resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.width')'.",
+            "documentation": "Return 'Int' of monitor width resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.width')'.",
             "args": ""
         },
         "getResolutionHeight": {
             "returns": "number",
-            "documentation": "return 'Int' of monitor height resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.height')'.",
+            "documentation": "Return 'Int' of monitor height resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.height')'.",
             "args": ""
         },
         "getBlendFromString": {
@@ -1165,7 +1165,7 @@
         },
         "getCurrentWallpaperPath": {
             "returns": "string",
-            "documentation": "return String of wallpaper path",
+            "documentation": "Return 'String' of wallpaper path",
             "args": ""
         },
         "debugPrintArray": {
@@ -1185,22 +1185,22 @@
         },
         "getColorFromRGB": {
             "returns": "number",
-            "documentation": "return 'Int' or 'Color ID' of from RGB.",
+            "documentation": "Return 'Int' or 'Color ID' of from RGB.",
             "args": "R:Int, G:Int, B:Int, A:Int = 255"
         },
         "customCameraExists": {
             "returns": "boolean",
-            "documentation": "return 'Bool' if customm camera exists.",
+            "documentation": "Return 'Bool' if customm camera exists.",
             "args": "tag:String"
         },
         "customStrumExists": {
             "returns": "boolean",
-            "documentation": "return 'Bool' if customm strums/field exists.",
+            "documentation": "Return 'Bool' if customm strums/field exists.",
             "args": "tag:String"
         },
         "getWindowProperty": {
             "returns": "boolean",
-            "documentation": "return 'Bool' of window property.",
+            "documentation": "Return 'Bool' of window property.",
             "args": "type:String = 'x'"
         },
         "centerWindow": {
@@ -1688,7 +1688,7 @@
         },
         "isMobile": {
             "returns": "boolean",
-            "documentation": "return 'Bool' if current platform is mobile."
+            "documentation": "Return 'Bool' if current platform is mobile."
         }
     },
     "events": {

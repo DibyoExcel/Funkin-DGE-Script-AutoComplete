@@ -1145,12 +1145,12 @@
         },
         "getResolutionWidth": {
             "returns": "number",
-            "documentation": "return 'Int' of monitor width resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.width')'.",
+            "documentation": "Return 'Int' of monitor width resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.width')'.",
             "args": ""
         },
         "getResolutionHeight": {
             "returns": "number",
-            "documentation": "return 'Int' of monitor height resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.height')'.",
+            "documentation": "Return 'Int' of monitor height resolution. Shortcut of 'getPropertyFromClass('openfl.Lib', 'application.application.window.display.bounds.height')'.",
             "args": ""
         },
         "getBlendFromString": {
@@ -1165,7 +1165,7 @@
         },
         "getCurrentWallpaperPath": {
             "returns": "string",
-            "documentation": "return String of wallpaper path",
+            "documentation": "Return 'String' of wallpaper path",
             "args": ""
         },
         "debugPrintArray": {
@@ -1561,51 +1561,51 @@
         },
         "gamemode": {
             "returns": "string",
-            "documentation": "Return String of current gamemode."
+            "documentation": "Return 'String' of current gamemode."
         },
         "extraui": {
             "returns": "boolean",
-            "documentation": "Return Bool of \"Extra UI\" Setting."
+            "documentation": "Return 'Bool' of \"Extra UI\" Setting."
         },
         "darkmode": {
             "returns": "boolean",
-            "documentation": "Return Bool of \"Dark Mode\" Setting."
+            "documentation": "Return 'Bool' of \"Dark Mode\" Setting."
         },
         "startPause": {
             "returns": "boolean",
-            "documentation": "Return Bool of \"Start Pause\" Setting."
+            "documentation": "Return 'Bool' of \"Start Pause\" Setting."
         },
         "defaultGfStrumX0": {
             "returns": "float",
-            "documentation": "Return Float of strums X0 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums X0 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumX1": {
             "returns": "float",
-            "documentation": "Return Float of strums X1 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums X1 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumX2": {
             "returns": "float",
-            "documentation": "Return Float of strums X2 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums X2 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumX3": {
             "returns": "float",
-            "documentation": "Return Float of strums X3 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums X3 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumY1": {
             "returns": "float",
-            "documentation": "Return Float of strums Y1 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums Y1 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumY2": {
             "returns": "float",
-            "documentation": "Return Float of strums Y2 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums Y2 'gfStrums'(2nd Opponent Strums only)."
         },
         "defaultGfStrumY3": {
             "returns": "float",
-            "documentation": "Return Float of strums Y3 'gfStrums'(2nd Opponent Strums only)."
+            "documentation": "Return 'Float' of strums Y3 'gfStrums'(2nd Opponent Strums only)."
         },
         "engineversion": {
             "returns": "string",
-            "documentation": "return String of DGE Version."
+            "documentation": "Return 'String' of DGE Version."
         }
     },
     "events": {

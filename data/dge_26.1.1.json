@@ -1257,6 +1257,11 @@
             "returns": "boolean",
             "documentation": "Return 'Bool' if custom toggle exists.\n\ntag: name of custom toggle to check if exists.",
             "args": "tag:String"
+        },
+        "formatTimeFromSecond": {
+            "returns": "boolean",
+            "documentation": "return 'String' of formatted time from second example:'63' second to '1:03'.\n\nsecond: number of second to format.\n\nshowMS: should show millisecond?",
+            "args": "second:Float = 0, showMS:Bool = false"
         }
     },
     "variables": {
