@@ -1113,7 +1113,7 @@
             "documentation": "Change os wallpaper.\n\npath: the path of images file(must be absolute. example: the 'example.png' in 'mods/modname/images/' you had to write 'path' as 'mods/modname/images/example.png').\n\nabsolute: if true it will use system path(example: 'C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg', the 'path' mush write like 'C:\\\\Windows\\\\Web\\\\Wallpaper\\\\Windows\\\\img0.jpg').",
             "args": "path:String, absolute:Bool = false"
         },
-        "createStrums": {
+        "createCustomStrum": {
             "returns": "void",
             "documentation": "create custom field.\n\ntag: tag name for custom field.\n\ndata: how much strum to spawn.\n\ncamera: camera target to custom field(selection: 'game', 'hud', 'other').\n\nscrollX: scroll speed of x.\n\nscrollY: scroll speed of y.\n\ndownscroll: should down scroll?(if not set it will use current setting).",
             "args": "tag:string, data:Int = 4, camera:String = 'hud', scrollX:Float = 0, scrollY:Float = 0, downscroll:Null<Bool>"
