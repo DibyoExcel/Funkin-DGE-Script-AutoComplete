@@ -1116,7 +1116,7 @@
         "createCustomStrum": {
             "returns": "void",
             "documentation": "create custom field.\n\ntag: tag name for custom field.\n\ndata: how much strum to spawn.\n\ncamera: camera target to custom field(selection: 'game', 'hud', 'other').\n\nscrollX: scroll speed of x.\n\nscrollY: scroll speed of y.\n\ndownscroll: should down scroll?(if not set it will use current setting).\n\nplayer: created as player strums(affected to different noteskin or 2nd strums mode(if enable)).\n\ngf: created as gf strums(affected to different noteskin or 2nd strums mode(if enable)).",
-            "args": "tag:string, data:Int = 4, camera:String = 'hud', scrollX:Float = 0, scrollY:Float = 0, downscroll:Null<Bool>"
+            "args": "tag:string, data:Int = 4, camera:String = 'hud', scrollX:Float = 0, scrollY:Float = 0, downscroll:Null<Bool>, player:Bool = false, gf:Bool = false"
         },
         "removeStrums": {
             "returns": "void",

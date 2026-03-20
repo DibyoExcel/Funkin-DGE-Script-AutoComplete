@@ -1185,7 +1185,7 @@
         },
         "getColorFromRGB": {
             "returns": "number",
-            "documentation": "Return 'Int' or 'Color ID' of from RGB.",
+            "documentation": "Return 'Int' or 'Color Decimal' of from RGB.\n\nR: red color channel.\n\nG: green color channel.\n\nB: blue color channel.",
             "args": "R:Int, G:Int, B:Int, A:Int = 255"
         },
         "customCameraExists": {
@@ -1267,6 +1267,11 @@
             "returns": "void",
             "documentation": "Change the notes splash texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What splash texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
             "args": "player:Bool = false, gf:Bool = false, texture:String = 'noteSplashes'"
+        },
+        "colorToGrayscale": {
+            "returns": "number",
+            "documentation": "return `Int` or `Color Decimal` of color to grayscale(luminance).\n\ncolor: the color decimal to grayscale(use `getColorFromRGB()` or `getColorFromHex()` to get int or color decimal)",
+            "args": "color:Int"
         }
     },
     "variables": {
@@ -1984,6 +1989,11 @@
             "returns": "void",
             "documentation": "function when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, splashId:Int, noteData:Int, noteType:String"
+        },
+        "onFieldHint": {
+            "returns": "void",
+            "documentation": "function when field hinting.\n\nfield: a field to hinted.\n\nreturn 'Function_Stop' will stop hint it.",
+            "args": "field:Array<String>"
         }
     }
 }
