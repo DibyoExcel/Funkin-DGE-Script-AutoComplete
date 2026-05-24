@@ -1288,7 +1288,7 @@
         },
         "changeNotesCameras": {
             "returns": "void",
-            "documentation": "Change Notes Cameras.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\note: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?",
+            "documentation": "Change Notes Cameras.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\note: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?",
             "args": "targetField:String = 'all', cam:Array<String>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true"
         },
         "changeNotesScrollFactor": {
@@ -1301,7 +1301,7 @@
             "documentation": "Change Notes Texture.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ntexture: what texture should use?\n\nnote: should affected change to note?\n\nstrum: should affected change to strum?\n\nexcludeNoteType: what notetype should do unchanged?",
             "args": "targetField:String = 'all', texture:String = '', ?note:Bool = true, ?strum:Bool = true, ?excludeNoteType:Array<String>"
         },
-        "changeNotesSplashTextureV2": {
+        "changeNotesHoldCoverV2": {
             "returns": "void",
             "documentation": "Change Notes Hold Cover Texture.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ntexture: what hold cover texture should use?\n\nexcludeNoteType: what notetype should do unchanged?",
             "args": "targetField:String = 'all', texture:String = '', ?excludeNoteType:Array<String>"
