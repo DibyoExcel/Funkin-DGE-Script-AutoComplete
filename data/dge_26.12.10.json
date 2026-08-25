@@ -320,13 +320,13 @@
         },
         "setGraphicSize": {
             "returns": "void",
-            "args": "obj:String, multX:Float, multY:Float = 0",
-            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* `multX` - Horizontal multiplier, default value is 1\n* `multY` - Vertical multiplier, default value is 1"
+            "args": "obj:String, x:Float, ?y:Float = 0, ?updateHitbox:Bool = true",
+            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* x - Width in pixels\n* y(Optional) - Height in pixels, set to 0 to keep its size constraint to the Width. Defaults to 0.\n* updateHitbox(Optional) - `updateHitbox` after scaling"
         },
         "scaleObject": {
             "returns": "void",
             "args": "obj:String, multX:Float, multY:Float = 0",
-            "documentation": "Works identically to `setGraphicSize()`"
+            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* `multX` - Horizontal multiplier, default value is 1\n* `multY` - Vertical multiplier, default value is 1"
         },
         "updateHitbox": {
             "returns": "void",
@@ -531,7 +531,7 @@
         "setSpriteShader": {
             "returns": "void",
             "args": "obj:String, shader:String",
-            "documentation": "Sets the shader of some `obj` to `shader`"
+            "documentation": "Sets the shader of some `obj` to `shader`. (use `@` to use build in shader. example `@invert`)."
         },
         "removeSpriteShader": {
             "returns": "void",
@@ -1161,7 +1161,8 @@
         "changeNotesTexture": {
             "returns": "void",
             "documentation": "Change the notes texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
+            "args": "player:Bool = false, gf:Bool = false, texture:String = ''",
+            "deprecated": "changeNotesTexture is deprecated! Use changeNotesTextureV2 instead"
         },
         "getCurrentWallpaperPath": {
             "returns": "string",
@@ -1208,15 +1209,10 @@
             "documentation": "Set window to center.\n\nduration: duration of transition to center.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
             "args": "duration:Float, ease:String"
         },
-        "changeRatingTexture": {
-            "returns": "void",
-            "documentation": "change rating texture.\n\nrating: rating name to change('sick', 'good', 'bad', 'shit', and 0-9(string only)).\n\npath: texture file path in 'images/'.",
-            "args": "rating:String, path:String"
-        },
         "resizeGame": {
             "returns": "void",
-            "documentation": "resize game world resolution.\n\nwidth: size width of game world reslution.\n\nheight: size height of game world resolution.\n\nresetLayout: should layout ui layout reset?\n\nduration: duration for transition.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.\n\nexcludeCam: exclude cam from resize(separate with comma example: 'hud, game').\n\nWarning: best use in 'onCreate()'. in other function can use but the camera character slightly bit off.",
-            "args": "width:Null<Int> = null, height:<Int> = null, resetLayout:Bool = false, duration:Float = 0, ease:String, excludeCam:String"
+            "documentation": "resize game world resolution.\n\nwidth: size width of game world reslution.\n\nheight: size height of game world resolution.\n\nresetLayout: should layout ui layout reset?\n\nduration: duration for transition.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.\n\nexcludeCam: exclude cam from resize(separate with comma example: 'hud, game').\n\nstrum: reset layout for strum(required `resetLayout` to `true`).\n\nhudUI: reset layout for HUD UI(required `resetLayout` to `true`).",
+            "args": "width:Null<Int> = null, height:<Int> = null, resetLayout:Bool = false, duration:Float = 0, ease:String, excludeCam:String, ?strum:Bool = true, ?hudUI:Bool = true"
         },
         "precacheSparrowAtlas": {
             "returns": "void",
@@ -1266,7 +1262,8 @@
         "changeNotesSplashTexture": {
             "returns": "void",
             "documentation": "Change the notes splash texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What splash texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = 'noteSplashes'"
+            "args": "player:Bool = false, gf:Bool = false, texture:String = 'noteSplashes'",
+            "deprecated": "changeNotesSplashTexture is deprecated! Use changeNotesSplashTextureV2 instead"
         },
         "colorToGrayscale": {
             "returns": "number",
@@ -1276,7 +1273,8 @@
         "changeNotesHoldCover": {
             "returns": "void",
             "documentation": "Change the notes hold cover texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What hold cover texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
+            "args": "player:Bool = false, gf:Bool = false, texture:String = ''",
+            "deprecated": "changeNotesHoldCover is deprecated! Use changeNotesHoldCoverV2 instead"
         },
         "changeOrientation": {
             "returns": "boolean",
@@ -1285,13 +1283,68 @@
         },
         "changeNotesCameras": {
             "returns": "void",
-            "documentation": "Change Notes Cameras.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\note: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?\n\nexcludeNoteType: what notetype should do unchanged?",
-            "args": "targetField:String = 'all', cam:Array<String>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true, ?excludeNoteType:Array<String>"
+            "documentation": "Change Notes Cameras.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\note: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?",
+            "args": "targetField:String = 'all', cam:Array<String>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true"
         },
         "changeNotesScrollFactor": {
             "returns": "void",
-            "documentation": "Change Notes Scroll Factor.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\nnote: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?\n\nexcludeNoteType: what notetype should do unchanged?",
+            "documentation": "Change Notes Scroll Factor.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\nscroll: how much scrollfactor to set(0 = no scroll).\n\nstrum: should affected change to strum?\n\nnote: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?\n\nexcludeNoteType: what notetype should do unchanged?",
             "args": "targetField:String = 'all', scroll:Array<Float>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true, ?excludeNoteType:Array<String>"
+        },
+        "changeNotesTextureV2": {
+            "returns": "void",
+            "documentation": "Change Notes Texture.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ntexture: what texture should use?\n\nnote: should affected change to note?\n\nstrum: should affected change to strum?\n\nexcludeNoteType: what notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?note:Bool = true, ?strum:Bool = true, ?excludeNoteType:Array<String>"
+        },
+        "changeNotesHoldCoverV2": {
+            "returns": "void",
+            "documentation": "Change Notes Hold Cover Texture.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ntexture: what hold cover texture should use?\n\nexcludeNoteType: what notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?excludeNoteType:Array<String>"
+        },
+        "changeNotesSplashTextureV2": {
+            "returns": "void",
+            "documentation": "Change Notes Splash Texture.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ntexture: what note splash texture should use?\n\nexcludeNoteType: what notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?excludeNoteType:Array<String>"
+        },
+        "setCameraShader": {
+            "returns": "void",
+            "args": "cam:String, shader:<String>",
+            "documentation": "Sets the shader of some `cam` to multi `shader`. (use `@` to use build in shader. example: `{'@invert', 'customshader'}`)."
+        },
+        "reorderCamera": {
+            "returns": "void",
+            "args": "orderCam:Array<String>",
+            "documentation": "Reorder Camera to `orderCam` order(behind-front)."
+        },
+        "setCameraOrder": {
+            "returns": "void",
+            "args": "cam:String, camTarget:String, behind:Bool = true",
+            "documentation": "Sets `cam` camera order to behind/front `camTarget' camera.\n\nbehind: If set to `false` it will put `cam` order to front `camTarget` camera or else will put `cam` order to behind `camTarget` camera."
+        },
+        "setCameraMost": {
+            "returns": "void",
+            "args": "cam:String, bottom:Bool = false",
+            "documentation": "Sets `cam` camera order to bottommost/topmost.\n\nbottom: If set to `true` it will put `cam` to bottommost or else will put `cam` to topmost."
+        },
+        "setCameraOrderV2": {
+            "returns": "void",
+            "args": "cam:String, index:Int",
+            "documentation": "Sets `cam` camera order to `index`.\n\nindex: Set camera index between listed camera."
+        },
+        "getCameraOrder": {
+            "returns": "number",
+            "args": "cam:String",
+            "documentation": "return Int of `cam` index."
+        },
+        "fitSpriteToScreen": {
+            "returns": "void",
+            "args": "obj:String, center:Bool = true, fill:Bool = true",
+            "documentation": "Sets `obj` scale proportion to fit screen.\n\nobj: The object game name.\n\ncenter: Should will center after scaling?\n\nfill: If set to `false` will scale to fit screen without cut sprite."
+        },
+        "addCameraAt": {
+            "returns": "void",
+            "documentation": "Same as `addCamera()` but with order control.\n\nindex: select order to add camera.",
+            "args": "name:String = '', x:Int, y:Int, width:Int, height:Int, zoom:Float = 1, ?sectionZoom:Bool = false, index:Int = -1"
         }
     },
     "variables": {
@@ -1972,53 +2025,63 @@
         },
         "opponentNoteMiss": {
             "returns": "void",
-            "documentation": "same as 'noteMiss(id:Int, noteData:Int, noteType:String, isSustainNote:Bool)' but for opponent and most use for bothside and opponent gamemode.'",
+            "documentation": "Same as 'noteMiss(id:Int, noteData:Int, noteType:String, isSustainNote:Bool)' but for opponent and most use for bothside and opponent gamemode.'",
             "args": "id:Int, noteData:Int, noteType:String, isSustainNote:Bool"
         },
         "opponentNMissPress": {
             "returns": "void",
-            "documentation": "same as 'noteMissPress(noteData:Int)' but for opponent and most use for opponent gamemode.'",
+            "documentation": "Same as 'noteMissPress(noteData:Int)' but for opponent and most use for opponent gamemode.'",
             "args": "noteData:Int"
         },
         "onChangeGamemode": {
             "returns": "void",
-            "documentation": "function when change gamemode(from 'changeGamemode()').\n\nname: returning the gamemode name after change.\n\ntransition:retrun bool after change gamemode transition.",
+            "documentation": "Function called when change gamemode(from 'changeGamemode()').\n\nname: Returning the gamemode name after change.\n\ntransition: Return bool after change gamemode transition.",
             "args": "name:String, transition:Bool"
         },
         "onChangeOpponent": {
             "returns": "void",
-            "documentation": "function when change when change 2nd strumd(from 'setSecondOpponent()').\n\ndualstrum: returning bool of 2nd strums mode after change.\n\ntransition: returning bool of transition after change.\n\ntransition2: returning bool of transition2 after change.",
+            "documentation": "Function called when change when change 2nd strumd(from 'setSecondOpponent()').\n\ndualstrum: Returning bool of 2nd strums mode after change.\n\ntransition: Returning bool of transition after change.\n\ntransition2: Returning bool of transition2 after change.",
             "args": "dualstrum:Bool, transition:Bool, transition2:Bool"
         },
         "onRatingPopUp": {
             "returns": "void",
-            "documentation": "function when pop up rating.\n\nnoteId: A Current note hit id.\n\nratingId: A Current Rating id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up rating.\n\nnoteId: A Current note hit id.\n\nratingId: A Current Rating id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, ratingId:Int, noteData:Int, noteType:String"
         },
         "onNumPopUp": {
             "returns": "void",
-            "documentation": "function when pop up combo number.\n\nnoteId: A Current note hit id.\n\nnumId: A Current Num id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up combo number.\n\nnoteId: A Current note hit id.\n\nnumId: A Current Num id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, numId:Int, noteData:Int, noteType:String"
         },
         "onComboPopUp": {
             "returns": "void",
-            "documentation": "function when pop up 'combo'.\n\nnoteId: A Current note hit id.\n\ncomboId: A Current combo hit id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up 'combo'.\n\nnoteId: A Current note hit id.\n\ncomboId: A Current combo hit id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, comboId:Int, noteData:Int, noteType:String"
         },
         "onSpawnNoteSplashes": {
             "returns": "void",
-            "documentation": "function when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, splashId:Int, noteData:Int, noteType:String"
         },
         "onFieldHint": {
             "returns": "void",
-            "documentation": "function when field hinting.\n\nfield: a field to hinted.\n\nreturn 'Function_Stop' will stop hint it.",
+            "documentation": "Function called when field hinting.\n\nfield: A field to hinted.\n\nReturn 'Function_Stop' will stop hint it.",
             "args": "field:Array<String>"
         },
         "fieldNoteHit": {
             "returns": "void",
-            "documentation": "same as 'goodNoteHit()` or `opponentNoteHit()`. But for custom field.\n\nfieldName: custom field name.\n\nmembersIndex: the 'notes' index number.\n\nnoteData: a noteData of notes.\n\nnoteType: a noteType of notes.\n\nisSustainNote: is this sustain notes?.",
+            "documentation": "Same as 'goodNoteHit()` or `opponentNoteHit()`. But for custom field.\n\nfieldName: Custom field name.\n\nmembersIndex: The 'notes' index number.\n\nnoteData: A noteData of notes.\n\nnoteType: A noteType of notes.\n\nisSustainNote: Is this sustain notes?.",
             "args": "fieldName:String, membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Bool"
+        },
+        "onDespawnNote": {
+            "returns": "void",
+            "documentation": "Function called when note despawn.\n\nmembersIndex: the 'notes' index number.\n\nnoteData: A noteData of notes.\n\nnoteType: A noteType of notes.\n\nisSustainNote: Is this sustain notes?.",
+            "args": "membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Bool"
+        },
+        "onGameResolutionChange": {
+            "returns": "void",
+            "documentation": "Function called when game resolution has change.\n\nWidth: New game width resolution.\n\nHeight: New game height resolution.",
+            "args": "Width:Int, Height:Int"
         }
     }
 }
