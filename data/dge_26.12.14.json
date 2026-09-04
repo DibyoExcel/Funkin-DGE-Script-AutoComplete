@@ -320,13 +320,13 @@
         },
         "setGraphicSize": {
             "returns": "void",
-            "args": "obj:String, multX:Float, multY:Float = 0",
-            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* `multX` - Horizontal multiplier, default value is 1\n* `multY` - Vertical multiplier, default value is 1"
+            "args": "obj:String, x:Float, ?y:Float = 0, ?updateHitbox:Bool = true",
+            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* x - Width in pixels\n* y(Optional) - Height in pixels, set to 0 to keep its size constraint to the Width. Defaults to 0.\n* updateHitbox(Optional) - `updateHitbox` after scaling"
         },
         "scaleObject": {
             "returns": "void",
             "args": "obj:String, multX:Float, multY:Float = 0",
-            "documentation": "Works identically to `setGraphicSize()`"
+            "documentation": "* `obj` - Object from PlayState or Lua Sprite\n* `multX` - Horizontal multiplier, default value is 1\n* `multY` - Vertical multiplier, default value is 1"
         },
         "updateHitbox": {
             "returns": "void",
@@ -341,7 +341,7 @@
         "setObjectCamera": {
             "returns": "void",
             "args": "obj:String, camera:String",
-            "documentation": "Changes on which camera should your object be drawn on\n* `obj` - Lua Sprite tag or Object variable name\n* `camera` - camera to set, like `game`, `hud` or `other`(Separate with comma. Example: 'game, hud')."
+            "documentation": "Changes on which camera should your object be drawn on\n* `obj` - Lua Sprite tag or Object variable name\n* `camera` - camera to set, like `game`, `hud` or `other`(Separate with comma. Example: `game, hud`)."
         },
         "addCharacterToList": {
             "returns": "void",
@@ -441,32 +441,32 @@
         "doTweenX": {
             "returns": "void",
             "args": "tag:String, vars:String, value:Dynamic, duration:Float, ease:String",
-            "documentation": "Do a Tween on an object's X value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
+            "documentation": "Do a Tween on an object's X value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
         },
         "doTweenY": {
             "returns": "void",
             "args": "tag:String, vars:String, value:Dynamic, duration:Float, ease:String",
-            "documentation": "Do a Tween on an object's Y value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
+            "documentation": "Do a Tween on an object's Y value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
         },
         "doTweenAngle": {
             "returns": "void",
             "args": "tag:String, vars:String, value:Dynamic, duration:Float, ease:String",
-            "documentation": "Do a Tween on an object's Angle value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
+            "documentation": "Do a Tween on an object's Angle value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
         },
         "doTweenAlpha": {
             "returns": "void",
             "args": "tag:String, vars:String, value:Dynamic, duration:Float, ease:String",
-            "documentation": "Do a Tween on an object's Alpha value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
+            "documentation": "Do a Tween on an object's Alpha value\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
         },
         "doTweenZoom": {
             "returns": "void",
             "args": "tag:String, cam:String, value:Dynamic, duration:Float, ease:String",
-            "documentation": "Do a Tween on a Camera's Zoom\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `cam` - Should be `camGame`, `camHUD` or `camOther`\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
+            "documentation": "Do a Tween on a Camera's Zoom\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `cam` - Should be `camGame`, `camHUD` or `camOther`\n* `value` - Target value on the tween end\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To do a tween to Boyfriend's Scale X, you should use `doTweenX('bfScaleTweenX', 'boyfriend.scale', 1.5, 1, 'elasticInOut')`, when the tween ends, it will do a callback for `onTweenCompleted('bfScaleTweenX')`"
         },
         "doTweenColor": {
             "returns": "void",
             "args": "tag:String, vars:String, targetColor:String, duration:Float, ease:String",
-            "documentation": "Do a Tween on an object's color\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `targetColor` - The color the object will have when the tween ends (Must be in hexadecimal!)\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. Check the link on the note i've added up here\n\nExample: To tween Boyfriend's color to Red, you should use `doTweenColor('bfColorTween', 'boyfriend', 'FF0000', 1, 'linear')`, when the tween ends, it will do a callback for `onTweenCompleted('bfColorTween')`"
+            "documentation": "Do a Tween on an object's color\n\n**Calling this function will cancel another tween that is using the same tag!**\n* `tag` - Once the tween is finished, it will do a callback of `onTweenCompleted(tag)`\n* `vars` - Variable to tween, example: `boyfriend` for tweening Boyfriend's X position, `boyfriend.scale` for tweening Boyfriend's Scale X\n* `targetColor` - The color the object will have when the tween ends (Must be in hexadecimal!)\n* `duration` - How much time it will take for the tween to end\n* `ease` - The tweening method used, example: `linear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)\n\nExample: To tween Boyfriend's color to Red, you should use `doTweenColor('bfColorTween', 'boyfriend', 'FF0000', 1, 'linear')`, when the tween ends, it will do a callback for `onTweenCompleted('bfColorTween')`"
         },
         "runTimer": {
             "returns": "void",
@@ -531,7 +531,7 @@
         "setSpriteShader": {
             "returns": "void",
             "args": "obj:String, shader:String",
-            "documentation": "Sets the shader of some `obj` to `shader`"
+            "documentation": "Sets the shader of some `obj` to `shader`. (use `@` to use build in shader. example `@invert`)."
         },
         "removeSpriteShader": {
             "returns": "void",
@@ -1026,17 +1026,17 @@
         },
         "setWindowBorderColor": {
             "returns": "void",
-            "documentation": "Set window border color.\n\nR: color of Red Channel(0-255).\n\nG: color of Green Channels(0-255).\n\nB: color of Blue Channel(0-255).",
+            "documentation": "Set window border color.\n\nR: Color of Red Channel(0-255).\n\nG: Color of Green Channels(0-255).\n\nB: Color of Blue Channel(0-255).",
             "args": "R:int = 255, G:Int 0, B:Int = 0"
         },
         "setWindowTitleColor": {
             "returns": "void",
-            "documentation": "Set window title color.\n\nR: color of Red Channel(0-255).\n\nG: color of Green Channels(0-255).\n\nB: color of Blue Channel(0-255).",
+            "documentation": "Set window title color.\n\nR: Color of Red Channel(0-255).\n\nG: Color of Green Channels(0-255).\n\nB: Color of Blue Channel(0-255).",
             "args": "R:int = 255, G:Int 255, B:Int = 255"
         },
         "setWindowColorMode": {
             "returns": "void",
-            "documentation": "Decided window border to darkmode.\n\ndark:set to dark mode.",
+            "documentation": "Decided window border to darkmode.\n\ndark: Set to dark mode.",
             "args": "dark:Bool = true"
         },
         "setWindowDarkMode": {
@@ -1051,96 +1051,96 @@
         },
         "setWindowX": {
             "returns": "void",
-            "documentation": "Set window X property.\n\nvalue: any int number for x window position.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here",
+            "documentation": "Set window X property.\n\nvalue: Any int number for x window position.\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)",
             "args": "value:Int, duration:Float = 0, ease:String",
             "deprecated": "setWindowX is deprecated!. Use setWindowProperty instead"
         },
         "setWindowY": {
             "returns": "void",
-            "documentation": "Set window Y property.\n\nvalue: any int number for y window position.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here",
+            "documentation": "Set window Y property.\n\nvalue: Any int number for y window position.\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)",
             "args": "value:Int, duration:Float = 0, ease:String",
             "deprecated": "setWindowY is deprecated!. Use setWindowProperty instead"
         },
         "setWindowWidth": {
             "returns": "void",
-            "documentation": "Set window Width property.\n\nvalue: any int number for width window position.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here",
+            "documentation": "Set window Width property.\n\nvalue: Any int number for width window position.\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html)",
             "args": "value:Int, duration:Float = 0, ease:String",
             "deprecated": "setWindowWidth is deprecated!. Use setWindowProperty instead"
         },
         "setWindowHeight": {
             "returns": "void",
-            "documentation": "Set window Height property.\n\nvalue: any int number for height window position.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
+            "documentation": "Set window Height property.\n\nvalue: Any int number for height window position.\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).",
             "args": "value:Int, duration:Float = 0, ease:String",
             "deprecated": "setWindowHeight is deprecated!. Use setWindowProperty instead"
         },
         "setWindowProperty": {
             "returns": "void",
-            "documentation": "Set window property.\n\nx: window x position(leave empty to ignore).\n\ny: window y position(leave empty to ignore).\n\nwidth: window width position(leave empty to ignore).\n\nheight: window height position(leave empty to ignore).\n\nduration: duration for transition.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
+            "documentation": "Set window property.\n\nx: Window x position(leave empty to ignore).\n\ny: Window y position(leave empty to ignore).\n\nwidth: Window width position(leave empty to ignore).\n\nheight: Window height position(leave empty to ignore).\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).",
             "args": "x:Null<Int>, y:Null<Int>, width:Null<Float>, height:Null<Float>, duration:Float = 0, ease:String, scale:Bool = false"
         },
         "resetWindow": {
             "returns": "void",
-            "documentation": "reset window to last window property before load song.",
+            "documentation": "reset window property.",
             "args": ""
         },
         "setSecondOpponent": {
             "returns": "void",
-            "documentation": "Set beteween 2nd strums or not.\n\nvalue:toggle of 2nd strums or normal.\n\ntransition: should add strums transition for player.\n\ntransition2: should add strums transition for opponent.",
+            "documentation": "Set beteween 2nd strums or not.\n\nvalue: Toggle of 2nd strums or normal.\n\ntransition: Should add strums transition for player.\n\ntransition2: Should add strums transition for opponent.",
             "args": "value:Bool, transition:Bool, transition2:Bool"
         },
         "changeGamemode": {
             "returns": "void",
-            "documentation": "Set gamemode.\n\nname: name of gamemode.\n\ntransition: set transition or not.",
+            "documentation": "Set gamemode.\n\nname: Name of gamemode.\n\ntransition: Set transition or not.",
             "args": "name:String = 'none', transition:Bool = true"
         },
         "changeSongSpeed": {
             "returns": "void",
-            "documentation": "Set song scroll speed.\n\nvalue: number the scroll speed.\n\nduration: duration of transition change scroll speed.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
+            "documentation": "Set song scroll speed.\n\nvalue: Number the scroll speed.\n\nduration: Duration of transition change scroll speed.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).",
             "args": "value:Float, duration:Float = 0, ease:String"
         },
         "backgroundColor": {
             "returns": "string",
-            "documentation": "Set app background color.\n\nR: color of Red Channel(0-255).\n\nG: color of Green Channel(0-255).\n\nB: color of Blue Channel(0-255).\n\nA:: Alpha Channel(not all platform work)(0-255).",
+            "documentation": "Set app background color.\n\nR: Color of Red Channel(0-255).\n\nG: Color of Green Channel(0-255).\n\nB: Color of Blue Channel(0-255).\n\nA:: Alpha Channel(not all platform work)(0-255).",
             "args": "R:Int = 0, G:Int = 0, B:Int = 0, A:Int = 255"
         },
         "mirrorSongSpeed": {
             "returns": "void",
-            "documentation": "mirror song scroll speed and strums y.\n\nduration: duration of transition mirror scroll speed.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
+            "documentation": "Mirror song scroll speed and strums y.\n\nduration: Duration of transition mirror scroll speed.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).",
             "args": "duration:Float = 0.25, ease:String"
         },
         "changeWallpaper": {
             "returns": "boolean",
-            "documentation": "Change os wallpaper.\n\npath: the path of images file(must be absolute. example: the 'example.png' in 'mods/modname/images/' you had to write 'path' as 'mods/modname/images/example.png').\n\nabsolute: if true it will use system path(example: 'C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg', the 'path' mush write like 'C:\\\\Windows\\\\Web\\\\Wallpaper\\\\Windows\\\\img0.jpg').",
+            "documentation": "Change os wallpaper.\n\npath: The path of images file(must be absolute. example: the 'example.png' in 'mods/modname/images/' you had to write 'path' as 'mods/modname/images/example.png').\n\nabsolute: If true it will use system path(example: 'C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg', the 'path' mush write like 'C:\\\\Windows\\\\Web\\\\Wallpaper\\\\Windows\\\\img0.jpg').",
             "args": "path:String, absolute:Bool = false"
         },
         "createCustomStrum": {
             "returns": "void",
-            "documentation": "create custom field.\n\ntag: tag name for custom field.\n\ndata: how much strum to spawn.\n\ncamera: camera target to custom field(selection: 'game', 'hud', 'other').\n\nscrollX: scroll speed of x.\n\nscrollY: scroll speed of y.\n\ndownscroll: should down scroll?(if not set it will use current setting).\n\nplayer: created as player strums(affected to different noteskin or 2nd strums mode(if enable)).\n\ngf: created as gf strums(affected to different noteskin or 2nd strums mode(if enable)).",
+            "documentation": "Create custom field.\n\ntag: Tag name for custom field.\n\ndata: How much strum to spawn.\n\ncamera: Camera target to custom field(selection: 'game', 'hud', 'other').\n\nscrollX: Scroll speed of x.\n\nscrollY: Scroll speed of y.\n\ndownscroll: Should down scroll?(if not set it will use current setting).\n\nplayer: Created as player strums(affected to different noteskin or 2nd strums mode(if enable)).\n\ngf: Created as gf strums(affected to different noteskin or 2nd strums mode(if enable)).",
             "args": "tag:string, data:Int = 4, camera:String = 'hud', scrollX:Float = 0, scrollY:Float = 0, downscroll:Null<Bool>, player:Bool = false, gf:Bool = false"
         },
         "removeStrums": {
             "returns": "void",
-            "documentation": "remove custom field.\n\ntag: tag name custom field.",
+            "documentation": "Remove custom field.\n\ntag: Tag name custom field.",
             "args": "tag:string"
         },
         "addCamera": {
             "returns": "void",
-            "documentation": "add custom camera.\n\nname: name custom camera(use 'camera:yourcameraname' if want access to 'setProperty()' or 'getProperty()').\n\nx: camera x position.\n\ny: camera y position.\n\nwidth: camera width.\n\n height: camera height.\n\nzoom: camera zoom(also as default zoom if 'sectionZoom' is 'true').\n\nWarning: the last caneras always use by pause screen(not releate after 1.6.3+).\n\nsectionZoom: make camera act like camHUD zooming.",
+            "documentation": "add custom camera.\n\nname: name custom camera(use 'camera:yourcameraname' if want access to 'setProperty()' or 'getProperty()').\n\nx: Camera x position.\n\ny: Camera y position.\n\nwidth: Camera width.\n\n height: Camera height.\n\nzoom: Camera zoom(also as default zoom if 'sectionZoom' is 'true').\n\nsectionZoom: Make camera act like camHUD zooming.",
             "args": "name:String = '', x:Int, y:Int, width:Int, height:Int, zoom:Float = 1, ?sectionZoom:Bool = false"
         },
         "removeCamera": {
             "returns": "void",
-            "documentation": "remove custom camera.\n\nname: name custom camera.",
+            "documentation": "Remove custom camera.\n\nname: Name custom camera.",
             "args": "name:String = ''"
         },
         "luaAlert": {
             "returns": "string",
-            "documentation": "make alert box.\n\ncontent: content of alert.\n\ntitle: title of content.",
+            "documentation": "Make alert box.\n\ncontent: Content of alert.\n\ntitle: Title of content.",
             "args": "content:String = \"Hi, I'm the who make this engine\", title:String = 'DubEnderDragon'"
         },
         "openURL": {
             "returns": "string",
-            "documentation": "open the webpage.\n\nweb: the link to open pages.",
+            "documentation": "Open the webpage.\n\nweb: The link to open pages.",
             "args": "web:String = 'https://github.com/Dibyo-Excel/Dragon-Engine'"
         },
         "getResolutionWidth": {
@@ -1155,13 +1155,14 @@
         },
         "getBlendFromString": {
             "returns": "BlendMode",
-            "documentation": "return 'BlendMode' from 'String'",
+            "documentation": "Return 'BlendMode' from 'String'",
             "args": "blend:String"
         },
         "changeNotesTexture": {
             "returns": "void",
-            "documentation": "Change the notes texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
+            "documentation": "Change the notes texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What texture should use?.\n\nInfo: For ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
+            "args": "player:Bool = false, gf:Bool = false, texture:String = ''",
+            "deprecated": "changeNotesTexture is deprecated! Use changeNotesTextureV2 instead"
         },
         "getCurrentWallpaperPath": {
             "returns": "string",
@@ -1170,22 +1171,22 @@
         },
         "debugPrintArray": {
             "returns": "void",
-            "documentation": "same as 'debugPrint()' but with array.",
+            "documentation": "Same as 'debugPrint()' but with array.",
             "args": "text:Array<Dynamic>"
         },
         "callProperty": {
             "returns": "any",
-            "documentation": "same as 'setProperty()' but use call method/function.\n\nexample: adding animation to bf: 'callProperty('boyfriend.animation.addByPrefix', {'youanimname', 'xml animation name'})'",
+            "documentation": "Same as 'setProperty()' but use call method/function.\n\nexample: Adding animation to bf: 'callProperty('boyfriend.animation.addByPrefix', {'youanimname', 'xml animation name'})'",
             "args": "variable:String, value:Array<Dynamic>"
         },
         "callPropertyFromGroup": {
             "returns": "any",
-            "documentation": "same as 'setPropertyFromGroup()' but use call method/function.\n\nexample: adding animation to strums 0: 'callPropertyFromGroup('strumLineNotes', 0, {'youanimname', 'xml animation name'})'",
+            "documentation": "Same as 'setPropertyFromGroup()' but use call method/function.\n\nexample: Adding animation to strums 0: 'callPropertyFromGroup('strumLineNotes', 0, {'youanimname', 'xml animation name'})'",
             "args": "obj:String, index:Int, value:Array<Dynamic>"
         },
         "getColorFromRGB": {
             "returns": "number",
-            "documentation": "Return 'Int' or 'Color Decimal' of from RGB.\n\nR: red color channel.\n\nG: green color channel.\n\nB: blue color channel.",
+            "documentation": "Return 'Int' or 'Color Decimal' of from RGB.\n\nR: Red color channel.\n\nG: Green color channel.\n\nB: Blue color channel.",
             "args": "R:Int, G:Int, B:Int, A:Int = 255"
         },
         "customCameraExists": {
@@ -1205,93 +1206,170 @@
         },
         "centerWindow": {
             "returns": "boolean",
-            "documentation": "Set window to center.\n\nduration: duration of transition to center.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.",
+            "documentation": "Set window to center.\n\nduration: Duration of transition to center.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).",
             "args": "duration:Float, ease:String"
-        },
-        "changeRatingTexture": {
-            "returns": "void",
-            "documentation": "change rating texture.\n\nrating: rating name to change('sick', 'good', 'bad', 'shit', and 0-9(string only)).\n\npath: texture file path in 'images/'.",
-            "args": "rating:String, path:String"
         },
         "resizeGame": {
             "returns": "void",
-            "documentation": "resize game world resolution.\n\nwidth: size width of game world reslution.\n\nheight: size height of game world resolution.\n\nresetLayout: should layout ui layout reset?\n\nduration: duration for transition.\n\nease: The tweening mehtod used, example 'linear', 'circInOut'. Check the link on the note i've added up here.\n\nexcludeCam: exclude cam from resize(separate with comma example: 'hud, game').\n\nWarning: best use in 'onCreate()'. in other function can use but the camera character slightly bit off.",
-            "args": "width:Null<Int> = null, height:<Int> = null, resetLayout:Bool = false, duration:Float = 0, ease:String, excludeCam:String"
+            "documentation": "Resize game world resolution.\n\nwidth: Size width of game world reslution.\n\nheight: Size height of game world resolution.\n\nresetLayout: Should layout ui layout reset?\n\nduration: Duration for transition.\n\nease: The tweening Method used, example '`inear`, `circInOut`. [All TweenMethod](https://api.haxeflixel.com/flixel/tweens/FlxEase.html).\n\nexcludeCam: Exclude cam from resize(separate with comma example: `hud, game`).\n\nstrum: Reset layout for strum(required `resetLayout` to `true`).\n\nhudUI: Reset layout for HUD UI(required `resetLayout` to `true`).",
+            "args": "width:Null<Int> = null, height:<Int> = null, resetLayout:Bool = false, duration:Float = 0, ease:String, excludeCam:String, ?strum:Bool = true, ?hudUI:Bool = true"
         },
         "precacheSparrowAtlas": {
             "returns": "void",
-            "documentation": "precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
+            "documentation": "Precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
             "args": "name:String"
         },
         "precachePackerAtlas": {
             "returns": "void",
-            "documentation": "precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
+            "documentation": "Precache sparrow atlas.\n\nname: name of atlas file in 'images/'.",
             "args": "name:String"
         },
         "addButton": {
             "returns": "void",
-            "documentation": "Add button object.\n\ntag: tag name of button(access object as 'customButtonMap@tag').\n\nx: x position of button.\n\ny: y position of button.\n\ntexture: texture file in 'images/'.\n\ncamera: camera target to button(selection: 'game', 'hud', 'other')(can be multi cam with comma. example: 'hud, other'.).\n\nwidth: width size of button.\n\nheight: height size of button.",
+            "documentation": "Add button object.\n\ntag: Tag name of button(access object as 'customButtonMap@tag').\n\nx: X position of button.\n\ny: Y position of button.\n\ntexture: Texture file in 'images/'.\n\ncamera: Camera target to button(selection: `game`, `hud`, `other`)(can be multi cam with comma. example: `hud, other`.).\n\nwidth: Width size of button.\n\nheight: Height size of button.",
             "args": "tag:String, x:Float, y:Float, texture:String, camera:String = 'hud', ?width:Int = 125, ?height:Int = 125"
         },
         "removeButton": {
             "returns": "void",
-            "documentation": "Remove button object.\n\ntag: tag name of button.",
+            "documentation": "Remove button object.\n\ntag: Tag name of button.",
             "args": "tag:String"
         },
         "addToggle": {
             "returns": "void",
-            "documentation": "Add toggle object.\n\ntag: tag name of toggle(access object as 'customToggleMap@tag').\n\nx: x position of toggle.\n\ny: y position of toggle.\n\ntexture: texture file in 'images/'.\n\ncamera: camera target to toggle(selection: 'game', 'hud', 'other')(can be multi cam with comma. example: 'hud, other'.).\n\nwidth: width size of toggle.\n\nheight: height size of toggle.\n\ninitialState: initial state of toggle(true:on, false:off).",
+            "documentation": "Add toggle object.\n\ntag: Tag name of toggle(access object as 'customToggleMap@tag').\n\nx: X position of toggle.\n\ny: Y position of toggle.\n\ntexture: Texture file in 'images/'.\n\ncamera: Camera target to toggle(selection: `game`, `hud`, `other`)(can be multi cam with comma. example: `hud, other`.).\n\nwidth: Width size of toggle.\n\nheight: Height size of toggle.\n\ninitialState: Initial state of toggle(true:on, false:off).",
             "args": "tag:String, x:Float, y:Float, texture:String, camera:String = 'hud', ?width:Int = 125, ?height:Int = 125, ?initialState:Bool = false"
         },
         "removeToggle": {
             "returns": "void",
-            "documentation": "Remove toggle object.\n\ntag: tag name of toggle.",
+            "documentation": "Remove toggle object.\n\ntag: Tag name of toggle.",
             "args": "tag:String"
         },
         "customButtonExists": {
             "returns": "boolean",
-            "documentation": "Return 'Bool' if custom button exists.\n\ntag: name of custom button to check if exists.",
+            "documentation": "Return 'Bool' if custom button exists.\n\ntag: Name of custom button to check if exists.",
             "args": "tag:String"
         },
         "customToggleExists": {
             "returns": "boolean",
-            "documentation": "Return 'Bool' if custom toggle exists.\n\ntag: name of custom toggle to check if exists.",
+            "documentation": "Return 'Bool' if custom toggle exists.\n\ntag: Name of custom toggle to check if exists.",
             "args": "tag:String"
         },
         "formatTimeFromSecond": {
             "returns": "boolean",
-            "documentation": "return 'String' of formatted time from second example:'63' second to '1:03'.\n\nsecond: number of second to format.\n\nshowMS: should show millisecond?",
+            "documentation": "Return 'String' of formatted time from second example:'63' second to '1:03'.\n\nsecond: Number of second to format.\n\nshowMS: Should show millisecond?",
             "args": "second:Float = 0, showMS:Bool = false"
         },
         "changeNotesSplashTexture": {
             "returns": "void",
-            "documentation": "Change the notes splash texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What splash texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = 'noteSplashes'"
+            "documentation": "Change the notes splash texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What splash texture should use?.\n\nInfo: For ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
+            "args": "player:Bool = false, gf:Bool = false, texture:String = 'noteSplashes'",
+            "deprecated": "changeNotesSplashTexture is deprecated! Use changeNotesSplashTextureV2 instead"
         },
         "colorToGrayscale": {
             "returns": "number",
-            "documentation": "return `Int` or `Color Decimal` of color to grayscale(luminance).\n\ncolor: the color decimal to grayscale(use `getColorFromRGB()` or `getColorFromHex()` to get int or color decimal)",
+            "documentation": "Return `Int` or `Color Decimal` of color to grayscale(luminance).\n\ncolor: The color decimal to grayscale(use `getColorFromRGB()` or `getColorFromHex()` to get int or color decimal)",
             "args": "color:Int"
         },
         "changeNotesHoldCover": {
             "returns": "void",
-            "documentation": "Change the notes hold cover texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What hold cover texture should use?.\n\nInfo: for ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
-            "args": "player:Bool = false, gf:Bool = false, texture:String = ''"
+            "documentation": "Change the notes hold cover texture.\n\nplayer: Player or Opponent notes.\n\ngf: Gf notes or normal notes.\n\ntexture: What hold cover texture should use?.\n\nInfo: For ignore change texture, set notes or strums 'ignoreTextureChange' to true.",
+            "args": "player:Bool = false, gf:Bool = false, texture:String = ''",
+            "deprecated": "changeNotesHoldCover is deprecated! Use changeNotesHoldCoverV2 instead"
         },
         "changeOrientation": {
             "returns": "boolean",
-            "documentation": "Change game orientation.\n\norientation: the orientation to use(accept: 'landscape', 'portrait', 'unspecific').",
+            "documentation": "Change game orientation.\n\norientation: The orientation to use(accept: 'landscape', 'portrait', 'unspecific').",
             "args": "orientation:String = 'landscape'"
         },
         "changeNotesCameras": {
             "returns": "void",
-            "documentation": "Change Notes Cameras.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\note: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?",
+            "documentation": "Change Notes Cameras.\n\ntargetField: What note field should use?(allowed value: `player`, `opponent`, `gf`, `all`)(use`@` prefix to use custom field from `createCustomStrum()`).\n\ncam: Camera to set, like `game`, `hud`, `other` or `customCamera`(use addCamera()).\n\nstrum: Should affected change to strum?\n\note: Should affected change to note?\n\nnoteSplash: Should affected change to note splash?\n\nholdCover: Should affected change hold cover?",
             "args": "targetField:String = 'all', cam:Array<String>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true"
         },
         "changeNotesScrollFactor": {
             "returns": "void",
-            "documentation": "Change Notes Scroll Factor.\n\ntargetField: what note field should use?(allowed value: player, opponent, gf, gf-player, gf-player, all)(use @ prefix to use custom field from createCustomStrum()).\n\ncam: camera to set, like game, hud, other or customCamera(use addCamera()).\n\nstrum: should affected change to strum?\n\nnote: should affected change to note?\n\nnoteSplash: should affected change to note splash?\n\nholdCover: should affected change hold cover?\n\nexcludeNoteType: what notetype should do unchanged?",
+            "documentation": "Change Notes Scroll Factor.\n\ntargetField: What note field should use?(allowed value: `player`, `opponent`, `gf`, `gf-player`, `gf-opponent`, `all`)(use `@` prefix to use custom field from `createCustomStrum()`).\n\nscroll: How much scrollfactor to set(0 = no scroll).\n\nstrum: Should affected change to strum?\n\nnote: Should affected change to note?\n\nnoteSplash: Should affected change to note splash?\n\nholdCover: Should affected change hold cover?\n\nexcludeNoteType: What notetype should do unchanged?",
             "args": "targetField:String = 'all', scroll:Array<Float>, ?strum:Bool = true, ?note:Bool = true, ?noteSplash:Bool = true, ?holdCover:Bool = true, ?excludeNoteType:Array<String>"
+        },
+        "changeNotesTextureV2": {
+            "returns": "void",
+            "documentation": "Change Notes Texture.\n\ntargetField: What note field should use?(allowed value: `player`, `opponent`, `gf`, `gf-player`, `gf-opponent`, `all`)(use `@` prefix to use custom field from `createCustomStrum()`).\n\ntexture: What texture should use?\n\nnote: Should affected change to note?\n\nstrum: Should affected change to strum?\n\nexcludeNoteType: What notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?note:Bool = true, ?strum:Bool = true, ?excludeNoteType:Array<String>"
+        },
+        "changeNotesHoldCoverV2": {
+            "returns": "void",
+            "documentation": "Change Notes Hold Cover Texture.\n\ntargetField: what note field should use?(allowed value: `player`, `opponent`, `gf`, `gf-player`, `gf-opponent`, `all`)(use `@` prefix to use custom field from `createCustomStrum()`).\n\ntexture: What hold cover texture should use?\n\nexcludeNoteType: What notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?excludeNoteType:Array<String>"
+        },
+        "changeNotesSplashTextureV2": {
+            "returns": "void",
+            "documentation": "Change Notes Splash Texture.\n\ntargetField: What note field should use?(allowed value: `player`, `opponent`, `gf`, `gf-player`, `gf-opponent`, `all`)(use `@` prefix to use custom field from `createCustomStrum()`).\n\ntexture: What note splash texture should use?\n\nexcludeNoteType: What notetype should do unchanged?",
+            "args": "targetField:String = 'all', texture:String = '', ?excludeNoteType:Array<String>"
+        },
+        "setCameraShader": {
+            "returns": "void",
+            "args": "cam:String, shader:<String>",
+            "documentation": "Sets the shader of some `cam` to multi `shader`. (use `@` to use build in shader. example: `{'@invert', 'customshader'}`)."
+        },
+        "reorderCamera": {
+            "returns": "void",
+            "args": "orderCam:Array<String>",
+            "documentation": "Reorder Camera to `orderCam` order(behind-front)."
+        },
+        "setCameraOrder": {
+            "returns": "void",
+            "args": "cam:String, camTarget:String, behind:Bool = true",
+            "documentation": "Sets `cam` camera order to behind/front `camTarget' camera.\n\nbehind: If set to `false` it will put `cam` order to front `camTarget` camera or else will put `cam` order to behind `camTarget` camera."
+        },
+        "setCameraMost": {
+            "returns": "void",
+            "args": "cam:String, bottom:Bool = false",
+            "documentation": "Sets `cam` camera order to bottommost/topmost.\n\nbottom: If set to `true` it will put `cam` to bottommost or else will put `cam` to topmost."
+        },
+        "setCameraOrderV2": {
+            "returns": "void",
+            "args": "cam:String, index:Int",
+            "documentation": "Sets `cam` camera order to `index`.\n\nindex: Index number of listed camera."
+        },
+        "getCameraOrder": {
+            "returns": "number",
+            "args": "cam:String",
+            "documentation": "Return Int of `cam` index."
+        },
+        "fitSpriteToScreen": {
+            "returns": "void",
+            "args": "obj:String, center:Bool = true, fill:Bool = true",
+            "documentation": "Sets `obj` scale proportion to fit screen.\n\nobj: The object game name.\n\ncenter: Should will center after scaling?\n\nfill: If set to `false` will scale to fit screen without cut sprite."
+        },
+        "addCameraAt": {
+            "returns": "void",
+            "documentation": "Same as `addCamera()` but with order control.\n\nindex: Index number of listed camera.",
+            "args": "name:String = '', x:Int, y:Int, width:Int, height:Int, zoom:Float = 1, ?sectionZoom:Bool = false, index:Int = -1"
+        },
+        "precacheVideo": {
+            "returns": "boolean",
+            "documentation": "Precache Video(Recommended put in onCreate()).\n\npath: Path of video file in videos/.",
+            "args": "path:String"
+        },
+        "addVideoSprite": {
+            "returns": "boolean",
+            "documentation": "Add Video as sprite.\n\ntag: Tag of video sprite(can use for `getProperty()` and `setProperty()`).\n\nx: X sprite position.\n\ny: Y sprite position.\n\npath: Video path to play(inside videos/ folder).\n\ncamera: Initial video sprite camera.\n\nhasVolume: Does video sprite has video sound?\n\nfront: Should created topmost sprite?",
+            "args": "tag:String, x:Float, y:Float, path:String, camera:String = 'other', hasVolume:Bool = true, front:Bool = true"
+        },
+        "moveVideoOrder": {
+            "returns": "void",
+            "documentation": "Sets video object(from `startVideo()`) order to behind/front `camera` camera.\n\nbehind: If set to false it will put video object order to front `camera` camera or else will put video object order to behind `camera` camera.",
+            "args": "camera:String, behind:Bool = true"
+        },
+        "setVideoMost": {
+            "returns": "void",
+            "documentation": "Sets video object(from `startVideo()`) order to bottommost/topmost.\n\nbottom: If set to true it will put video object(from `startVideo()`) to bottommost or else will put video object(from `startVideo()`) to topmost.",
+            "args": "bottom:Bool = false"
+        },
+        "setVideoOrder": {
+            "returns": "void",
+            "documentation": "Sets video object(from `startVideo()`) order to camera `index`.\n\nindex: Index number of listed camera.",
+            "args": "index:Int"
         }
     },
     "variables": {
@@ -1685,15 +1763,15 @@
         },
         "extraui": {
             "returns": "boolean",
-            "documentation": "Return 'Bool' of \"Extra UI\" Setting."
+            "documentation": "Return 'Bool' of \"Extra UI\" setting."
         },
         "darkmode": {
             "returns": "boolean",
-            "documentation": "Return 'Bool' of \"Dark Mode\" Setting."
+            "documentation": "Return 'Bool' of \"Dark Mode\" setting."
         },
         "startPause": {
             "returns": "boolean",
-            "documentation": "Return 'Bool' of \"Start Pause\" Setting."
+            "documentation": "Return 'Bool' of \"Start Pause\" setting."
         },
         "defaultGfStrumX0": {
             "returns": "float",
@@ -1725,31 +1803,31 @@
         },
         "engineversion": {
             "returns": "string",
-            "documentation": "return 'String' of DGE Version."
+            "documentation": "Return 'String' of DGE Version."
         },
         "deviceModel": {
             "returns": "string",
-            "documentation": "return 'String' of Device Model."
+            "documentation": "Return 'String' of Device Model."
         },
         "deviceVendor": {
             "returns": "string",
-            "documentation": "return 'String' of Device Vendor."
+            "documentation": "Return 'String' of Device Vendor."
         },
         "platformLabel": {
             "returns": "string",
-            "documentation": "return 'String' of Platform Label."
+            "documentation": "Return 'String' of Platform Label."
         },
         "platformName": {
             "returns": "string",
-            "documentation": "return 'String' of Platform Name."
+            "documentation": "Return 'String' of Platform Name."
         },
         "platformVersion": {
             "returns": "string",
-            "documentation": "return 'String' of Platform Version."
+            "documentation": "Return 'String' of Platform Version."
         },
         "camGameMult": {
             "returns": "float",
-            "documentation": "return 'Float' of Multiply resolution fill content from 'resizeGame()'."
+            "documentation": "Return 'Float' of Multiply resolution fill content from 'resizeGame()'."
         },
         "isMobile": {
             "returns": "boolean",
@@ -1972,53 +2050,68 @@
         },
         "opponentNoteMiss": {
             "returns": "void",
-            "documentation": "same as 'noteMiss(id:Int, noteData:Int, noteType:String, isSustainNote:Bool)' but for opponent and most use for bothside and opponent gamemode.'",
+            "documentation": "Same as 'noteMiss(id:Int, noteData:Int, noteType:String, isSustainNote:Bool)' but for opponent and most use for bothside and opponent gamemode.'",
             "args": "id:Int, noteData:Int, noteType:String, isSustainNote:Bool"
         },
         "opponentNMissPress": {
             "returns": "void",
-            "documentation": "same as 'noteMissPress(noteData:Int)' but for opponent and most use for opponent gamemode.'",
+            "documentation": "Same as 'noteMissPress(noteData:Int)' but for opponent and most use for opponent gamemode.'",
             "args": "noteData:Int"
         },
         "onChangeGamemode": {
             "returns": "void",
-            "documentation": "function when change gamemode(from 'changeGamemode()').\n\nname: returning the gamemode name after change.\n\ntransition:retrun bool after change gamemode transition.",
+            "documentation": "Function called when change gamemode(from 'changeGamemode()').\n\nname: Returning the gamemode name after change.\n\ntransition: Return bool after change gamemode transition.",
             "args": "name:String, transition:Bool"
         },
         "onChangeOpponent": {
             "returns": "void",
-            "documentation": "function when change when change 2nd strumd(from 'setSecondOpponent()').\n\ndualstrum: returning bool of 2nd strums mode after change.\n\ntransition: returning bool of transition after change.\n\ntransition2: returning bool of transition2 after change.",
+            "documentation": "Function called when change when change 2nd strum(from 'setSecondOpponent()').\n\ndualstrum: Returning bool of 2nd strums mode after change.\n\ntransition: Returning bool of transition after change.\n\ntransition2: Returning bool of transition2 after change.",
             "args": "dualstrum:Bool, transition:Bool, transition2:Bool"
         },
         "onRatingPopUp": {
             "returns": "void",
-            "documentation": "function when pop up rating.\n\nnoteId: A Current note hit id.\n\nratingId: A Current Rating id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up rating.\n\nnoteId: A Current note hit id.\n\nratingId: A Current Rating id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, ratingId:Int, noteData:Int, noteType:String"
         },
         "onNumPopUp": {
             "returns": "void",
-            "documentation": "function when pop up combo number.\n\nnoteId: A Current note hit id.\n\nnumId: A Current Num id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up combo number.\n\nnoteId: A Current note hit id.\n\nnumId: A Current Num id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, numId:Int, noteData:Int, noteType:String"
         },
         "onComboPopUp": {
             "returns": "void",
-            "documentation": "function when pop up 'combo'.\n\nnoteId: A Current note hit id.\n\ncomboId: A Current combo hit id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when pop up 'combo'.\n\nnoteId: A Current note hit id.\n\ncomboId: A Current combo hit id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, comboId:Int, noteData:Int, noteType:String"
         },
         "onSpawnNoteSplashes": {
             "returns": "void",
-            "documentation": "function when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
+            "documentation": "Function called when spawn note splash.\n\nnoteId: A Current note hit id.\n\nsplashId: A Current splash id.\n\nnoteData: A current noteData.\n\nnoteType: A current noteType.",
             "args": "noteId:Int, splashId:Int, noteData:Int, noteType:String"
         },
         "onFieldHint": {
             "returns": "void",
-            "documentation": "function when field hinting.\n\nfield: a field to hinted.\n\nreturn 'Function_Stop' will stop hint it.",
+            "documentation": "Function called when field hinting.\n\nfield: A field to hinted.\n\nReturn 'Function_Stop' will stop hint it.",
             "args": "field:Array<String>"
         },
         "fieldNoteHit": {
             "returns": "void",
-            "documentation": "same as 'goodNoteHit()` or `opponentNoteHit()`. But for custom field.\n\nfieldName: custom field name.\n\nmembersIndex: the 'notes' index number.\n\nnoteData: a noteData of notes.\n\nnoteType: a noteType of notes.\n\nisSustainNote: is this sustain notes?.",
+            "documentation": "Same as 'goodNoteHit()` or `opponentNoteHit()`. But for custom field.\n\nfieldName: Custom field name.\n\nmembersIndex: The 'notes' index number.\n\nnoteData: A noteData of notes.\n\nnoteType: A noteType of notes.\n\nisSustainNote: Is this sustain notes?.",
             "args": "fieldName:String, membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Bool"
+        },
+        "onDespawnNote": {
+            "returns": "void",
+            "documentation": "Function called when note despawn.\n\nmembersIndex: the 'notes' index number.\n\nnoteData: A noteData of notes.\n\nnoteType: A noteType of notes.\n\nisSustainNote: Is this sustain notes?.",
+            "args": "membersIndex:Int, noteData:Int, noteType:String, isSustainNote:Bool"
+        },
+        "onGameResolutionChange": {
+            "returns": "void",
+            "documentation": "Function called when game resolution has change.\n\nWidth: New game width resolution.\n\nHeight: New game height resolution.",
+            "args": "Width:Int, Height:Int"
+        },
+        "onVideoFinished": {
+            "returns": "string",
+            "documentation": "Function called when video sprite finished(from `addVideoSprite()`).\n\ntag: Video `tag` name just finished.",
+            "args": "tag:String"
         }
     }
 }
